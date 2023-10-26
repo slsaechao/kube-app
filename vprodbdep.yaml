@@ -29,8 +29,9 @@ spec:
                 secretKeyRef:
                   name: app-secret
                   key: db-pass
-      nodeSelector:
-        zone: us-east-2a
+#removing the node selector since us-east-2a is the master node and has a taint preventing vprodb from launching
+#      nodeSelector:
+#        zone: us-east-2a
       volumes:
         - name: vpro-db-data
           awsElasticBlockStore:
